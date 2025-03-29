@@ -1,26 +1,27 @@
-name: DeleteRows
+name: Delete Recent Supabase Rows
 
 on:
-  workflow_dispatch:' 
   schedule:
-    - cron: '0 6 * * *' 
+    - cron: '0 0 * * *'  # 毎日午前0時に実行
+  workflow_dispatch:      # 手動実行も可能
 
 jobs:
-  delete-users:
+  delete-recent-rows:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Set up Node.js
+      
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-
+      
       - name: Install dependencies
-        run: npm install
-
-      - name: Delete all users
+        run: npm install @supabase/supabase-js dotenv
+      
+      - name: Delete recent rows
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}

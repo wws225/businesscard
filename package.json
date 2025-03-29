@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
+    "test:sequential": "vitest --runInBand",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
