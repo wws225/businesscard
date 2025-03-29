@@ -1,0 +1,86 @@
+// import { render, screen, waitFor } from "@testing-library/react";
+// import { describe, it, expect } from "vitest";
+// import { BrowserRouter, MemoryRouter, Route, Routes } from "react-router-dom";
+// import { GetBusinessCard } from "@/supabase/GetBusinessCard";
+// import userEvent from "@testing-library/user-event";
+// import { Cards } from "@/pages/Cards";
+// import "@testing-library/jest-dom";
+
+// // `GetBusinessCard` のモック
+// vi.mock("@/supabase/GetBusinessCard", () => ({
+//     useParams :() =>  "sample-id" ,
+//     GetBusinessCard: vi.fn(()=>({
+//         id: "123",
+//         name: "テストユーザー",
+//         description: "これはテストの説明です。",
+//         skill: "React, TypeScript",
+//         github_id: "a",
+//         qiita_id: "b",
+//         x_id: "c",
+//     })),
+// }));
+
+// describe("Cards コンポーネント", () => {
+
+//     it("データがある場合の表示", async () => {
+  
+
+//         render(
+//             <BrowserRouter>
+//                  <Routes>
+//                      <Route path="/cards/:subpath/*" element={<Cards />} />
+//                  </Routes>
+//                  </BrowserRouter>
+//         );
+
+//         await waitFor(() => expect(screen.queryByTestId("load")).not.toBeInTheDocument());
+
+//         expect(screen.getByTestId("cards-name")).toHaveTextContent("テストユーザー");
+//         expect(screen.getByTestId("cards-description")).toHaveTextContent("これはテストの説明です。");
+//         expect(screen.getByTestId("cards-skill")).toHaveTextContent("React, TypeScript");
+
+//         expect(screen.getByTestId("cards-githubIcon").closest("a")).toHaveAttribute("href", "https://github.com/test-user");
+//         expect(screen.getByTestId("cards-qiitaIcon").closest("a")).toHaveAttribute("href", "https://qiita.com/test-user");
+//         expect(screen.getByTestId("cards-xIcon").closest("a")).toHaveAttribute("href", "https://twitter.com/test-user");
+//     });
+
+//     // it("データがない場合の表示", async () => {
+//     //     (GetBusinessCard as vi.Mock).mockResolvedValue(null);
+
+//     //     render(
+//     //         <MemoryRouter initialEntries={["/cards/test-user"]}>
+//     //             <Routes>
+//     //                 <Route path="/cards/:subpath" element={<Cards />} />
+//     //             </Routes>
+//     //         </MemoryRouter>
+//     //     );
+
+//     //     await waitFor(() => expect(screen.queryByTestId("load")).not.toBeInTheDocument());
+
+//     //     expect(screen.getByText("データがありません")).toBeInTheDocument();
+//     // });
+
+//     // it("戻るボタンをクリックするとルートへ移動", async () => {
+//     //     const mockNavigate = vi.fn();
+//     //     vi.mock("react-router-dom", async () => {
+//     //         const actual = await vi.importActual("react-router-dom");
+//     //         return {
+//     //             ...actual,
+//     //             useNavigate: () => mockNavigate,
+//     //         };
+//     //     });
+
+//     //     render(
+//     //         <MemoryRouter initialEntries={["/cards/test-user"]}>
+//     //             <Routes>
+//     //                 <Route path="/cards/:subpath" element={<Cards />} />
+//     //             </Routes>
+//     //         </MemoryRouter>
+//     //     );
+
+//     //     const button = screen.getByTestId("button-back");
+//     //     await userEvent.click(button);
+
+//     //     expect(mockNavigate).toHaveBeenCalledWith("/");
+//     // });
+// });

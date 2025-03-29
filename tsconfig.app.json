@@ -22,7 +22,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-
+/* Vitest */
+    "types": ["vitest/globals"],
     "paths": {
       "@/*": ["./src/*"]
     }

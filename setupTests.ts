@@ -1,6 +1,6 @@
-import "@testing-library/jest-dom";
+import { vi } from "vitest";
 
-require("dotenv").config();
+globalThis.vi = vi;
 
 if(!global.structuredClone){
     global.structuredClone = function structuredClone(objectToClone: any) {
@@ -8,5 +8,3 @@ if(!global.structuredClone){
       return JSON.parse(JSON.stringify(objectToClone));
     };
   }
-
-  

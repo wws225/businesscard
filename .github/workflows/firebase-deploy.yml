@@ -42,8 +42,8 @@ jobs:
         run: |
           ./node_modules/.bin/firebase deploy --only hosting
         env:
-      #    VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-      #    VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
           FIREBASE_CLI_EXPERIMENTS: webframeworks
       - name: Cleanup Firebase Key
         run: rm $GOOGLE_APPLICATION_CREDENTIALS
@@ -65,11 +65,11 @@ jobs:
 
       # 依存関係をインストール
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       # Jestのテストを実行
       - name: Run tests
-      #  env:
-      #    VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-      #    VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        env:
+         VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+         VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: npm run test:sequential
