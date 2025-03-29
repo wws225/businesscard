@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import { MemoryRouter, useNavigate } from 'react-router-dom'
+import {  screen, fireEvent, waitFor } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import renderWithChakra from './render/renderWithChakra'
 import "@testing-library/jest-dom";
 import App from '@/App'
