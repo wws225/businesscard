@@ -3,7 +3,11 @@ import { Router } from './router/Router'
 function App() {
 
   return (
-     <HStack justify={"center"} height={"100vh"} bg={"blue.100"}>
+     <HStack   width="100%" 
+     minH="100vh"
+     justifyContent="center" 
+     alignItems="center" 
+     bg="blue.100">
       <Router />
     </HStack>
   )

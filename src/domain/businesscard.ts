@@ -30,5 +30,6 @@ function removeAtmak(str: string) {
     return str.startsWith("@") ? str.slice(1) : str;
 }
 function formatURL(id: string | undefined, url: string) {
+    if (id == "") return undefined
     return id ? url + removeAtmak(id) : undefined
 }
